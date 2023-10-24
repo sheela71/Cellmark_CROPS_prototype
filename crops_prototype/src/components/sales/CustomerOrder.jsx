@@ -10,9 +10,14 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  TextField,
   Typography,
 } from "@mui/material";
 import TabBar from "../TabBar";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 function CustomerOrder() {
   const [state, setState] = useState({
@@ -314,11 +319,59 @@ function CustomerOrder() {
             <Card>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Company Details
+                  Order Details
                 </Typography>
                 <div className="flex flex-col space-y-2">
+                  <div style={{display: "flex"}}>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker label="Begin Date" />
+                    </LocalizationProvider>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker label="End Date" />
+                    </LocalizationProvider>
+                  </div>
+                  <div style={{display: "flex"}}>
+                    <FormControl fullWidth>
+                      <InputLabel>No of Days</InputLabel>
+                      <TextField />
+                    </FormControl>
+                    <FormControl fullWidth>
+                      <InputLabel>Gender</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-helper-label"
+                        id="demo-simple-select-helper"
+                        value={state.orderDetails.gender}
+                        label="Gender"
+                        onChange={() => {}}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={"male"}>Male</MenuItem>
+                        <MenuItem value={"female"}>Female</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+
                   <FormControl fullWidth>
-                    <InputLabel>Currency</InputLabel>
+                    <InputLabel>Sales person</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-helper-label"
+                      id="demo-simple-select-helper"
+                      value={state.companyDetails.currency}
+                      label="Currency"
+                      onChange={() => {}}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Person 1"}>Person 1</MenuItem>
+                      <MenuItem value={20}>Person 2</MenuItem>
+                      <MenuItem value={30}>Person 3</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth>
+                    <InputLabel>DLC</InputLabel>
                     <Select
                       labelId="demo-simple-select-helper-label"
                       id="demo-simple-select-helper"
@@ -335,92 +388,7 @@ function CustomerOrder() {
                     </Select>
                   </FormControl>
                   <FormControl fullWidth>
-                    <InputLabel>QP Company</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={state.companyDetails.currency}
-                      label="Currency"
-                      onChange={() => {}}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>US Dollars</MenuItem>
-                      <MenuItem value={20}>INR</MenuItem>
-                      <MenuItem value={30}>Euro</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel>Location</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={state.companyDetails.currency}
-                      label="Currency"
-                      onChange={() => {}}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>US Dollars</MenuItem>
-                      <MenuItem value={20}>INR</MenuItem>
-                      <MenuItem value={30}>Euro</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel>Order Number</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={state.companyDetails.currency}
-                      label="Currency"
-                      onChange={() => {}}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>US Dollars</MenuItem>
-                      <MenuItem value={20}>INR</MenuItem>
-                      <MenuItem value={30}>Euro</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel>Domestic Export</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={state.companyDetails.currency}
-                      label="Currency"
-                      onChange={() => {}}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>US Dollars</MenuItem>
-                      <MenuItem value={20}>INR</MenuItem>
-                      <MenuItem value={30}>Euro</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel>Order Status</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={state.companyDetails.currency}
-                      label="Currency"
-                      onChange={() => {}}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>US Dollars</MenuItem>
-                      <MenuItem value={20}>INR</MenuItem>
-                      <MenuItem value={30}>Euro</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <InputLabel>Prime TBD</InputLabel>
+                    <InputLabel>DLC 2</InputLabel>
                     <Select
                       labelId="demo-simple-select-helper-label"
                       id="demo-simple-select-helper"
