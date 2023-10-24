@@ -12,6 +12,7 @@ import {
   Select,
   Typography,
 } from "@mui/material";
+import TabBar from "../TabBar";
 
 function CustomerOrder() {
   const [state, setState] = useState({
@@ -44,8 +45,8 @@ function CustomerOrder() {
     },
   });
   return (
-    <>
-      <div>Search CustomerOrder</div>
+    <TabBar>
+      {/* <div>Search CustomerOrder</div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={4} sm={4} md={4} lg={4}>
@@ -440,8 +441,8 @@ function CustomerOrder() {
             </Card>
           </Grid>
         </Grid>
-      </Box>
-    </>
+      </Box> */}
+    </TabBar>
   );
 }
 
