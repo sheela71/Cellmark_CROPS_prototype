@@ -13,6 +13,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import TabBar from "../TabBar";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -49,8 +50,8 @@ function CustomerOrder() {
     },
   });
   return (
-    <>
-      <div>Search CustomerOrder</div>
+    <TabBar>
+      {/* <div>Search CustomerOrder</div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={4} sm={4} md={4} lg={4}>
@@ -408,8 +409,8 @@ function CustomerOrder() {
             </Card>
           </Grid>
         </Grid>
-      </Box>
-    </>
+      </Box> */}
+    </TabBar>
   );
 }
 
