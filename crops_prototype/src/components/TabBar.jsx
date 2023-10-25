@@ -20,6 +20,14 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Paper from "@mui/material/Paper";
 import Dashboard from "@mui/icons-material/GridView";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 import {
   Card,
   CardContent,
@@ -137,6 +145,11 @@ export default function TabBar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const [value, setValue] = React.useState("1");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -224,402 +237,519 @@ export default function TabBar() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <div>Search CustomerOrder</div>
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={4} sm={4} md={4} lg={4}>
-              <Card>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Company Details
-                  </Typography>
-                  <div className="flex flex-col space-y-2">
-                    <FormControl fullWidth>
-                      <InputLabel>Currency</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>QP Company</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Location</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Order Number</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Domestic Export</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Order Status</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Prime TBD</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </div>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={4} sm={4} md={4} lg={4}>
-              <Card>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Customer Details
-                  </Typography>
-                  <div className="flex flex-col space-y-2">
-                    <FormControl fullWidth>
-                      <InputLabel>Customer</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Bill to Cusotmer</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Customer Reference</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Country</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <div>Sales</div>
+              <Tab label="CO" value="2" />
+              <Tab label="LOC" value="3" />
+              <Tab label="DCM" value="4" />
+              <Tab label="Customer" value="5" />
+              <div>Search CustomerOrder</div>
+            </TabList>
+          </Box>
+          <TabPanel value="2">
+            {" "}
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={4} sm={4} md={4} lg={4}>
+                  <Card>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Customer Details
+                      </Typography>
+                      <div className="flex flex-col space-y-2">
+                        <FormControl fullWidth>
+                          <InputLabel>Currency</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>QP Company</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Location</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Order Number</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Domestic Export</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Order Status</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Prime TBD</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item xs={4} sm={4} md={4} lg={4}>
+                  <Card>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Customer
+                      </Typography>
+                      <div className="flex flex-col space-y-2">
+                        <FormControl fullWidth>
+                          <InputLabel>Customer</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Bill to Cusotmer</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Customer Reference</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Country</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
 
-                    <FormControl fullWidth>
-                      <InputLabel>Domestic Export</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
+                        <FormControl fullWidth>
+                          <InputLabel>Domestic Export</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Agent</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl fullWidth>
+                          <InputLabel>Agent Reference</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={10}>US Dollars</MenuItem>
+                            <MenuItem value={20}>INR</MenuItem>
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item xs={4} sm={4} md={4} lg={4}>
+                  <Card>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Order Details
+                      </Typography>
+
+                      <div className="flex flex-col space-y-2">
+                        <div style={{ display: "flex" }}>
+                          <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker label="Begin Date" />
+                          </LocalizationProvider>
+
+                          <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker label="End Date" />
+                          </LocalizationProvider>
+                        </div>
+
+                        <div style={{ display: "flex" }}>
+                          <FormControl fullWidth>
+                            <InputLabel>No of Days</InputLabel>
+
+                            <TextField />
+                          </FormControl>
+
+                          <FormControl fullWidth>
+                            <InputLabel>Gender</InputLabel>
+
+                            <Select
+                              labelId="demo-simple-select-helper-label"
+                              id="demo-simple-select-helper"
+                              value={state.orderDetails.gender}
+                              label="Gender"
+                              onChange={() => {}}
+                            >
+                              <MenuItem value="">
+                                <em>None</em>
+                              </MenuItem>
+
+                              <MenuItem value={"male"}>Male</MenuItem>
+
+                              <MenuItem value={"female"}>Female</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </div>
+
+                        <FormControl fullWidth>
+                          <InputLabel>Sales person</InputLabel>
+
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+
+                            <MenuItem value={"Person 1"}>Person 1</MenuItem>
+
+                            <MenuItem value={20}>Person 2</MenuItem>
+
+                            <MenuItem value={30}>Person 3</MenuItem>
+                          </Select>
+                        </FormControl>
+
+                        <FormControl fullWidth>
+                          <InputLabel>DLC</InputLabel>
+
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+
+                            <MenuItem value={10}>US Dollars</MenuItem>
+
+                            <MenuItem value={20}>INR</MenuItem>
+
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+
+                        <FormControl fullWidth>
+                          <InputLabel>DLC 2</InputLabel>
+
+                          <Select
+                            labelId="demo-simple-select-helper-label"
+                            id="demo-simple-select-helper"
+                            value={state.companyDetails.currency}
+                            label="Currency"
+                            onChange={() => {}}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+
+                            <MenuItem value={10}>US Dollars</MenuItem>
+
+                            <MenuItem value={20}>INR</MenuItem>
+
+                            <MenuItem value={30}>Euro</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+              <Box sx={{ display: "flex" }}>
+                <CssBaseline />
+                <AppBar position="fixed" open={open}>
+                  <Toolbar>
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      onClick={handleDrawerOpen}
+                      edge="start"
+                      sx={{
+                        marginRight: 5,
+                        ...(open && { display: "none" }),
+                      }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap component="div">
+                      Cellmark
+                    </Typography>
+                  </Toolbar>
+                </AppBar>
+                <Drawer variant="permanent" open={open}>
+                  <DrawerHeader>
+                    <IconButton onClick={handleDrawerClose}>
+                      {theme.direction === "rtl" ? (
+                        <ChevronRightIcon />
+                      ) : (
+                        <ChevronLeftIcon />
+                      )}
+                    </IconButton>
+                  </DrawerHeader>
+                  <Divider />
+                  <List>
+                    {["Inbox", "Starred", "Send email", "Drafts"].map(
+                      (text, index) => (
+                        <ListItem
+                          key={text}
+                          disablePadding
+                          sx={{ display: "block" }}
+                        >
+                          <ListItemButton
+                            sx={{
+                              minHeight: 48,
+                              justifyContent: open ? "initial" : "center",
+                              px: 2.5,
+                            }}
+                          >
+                            <ListItemIcon
+                              sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : "auto",
+                                justifyContent: "center",
+                              }}
+                            >
+                              {index % 2 === 0 ? <Dashboard /> : <MailIcon />}
+                            </ListItemIcon>
+                            <ListItemText
+                              primary={text}
+                              sx={{ opacity: open ? 1 : 0 }}
+                            />
+                          </ListItemButton>
+                        </ListItem>
+                      )
+                    )}
+                  </List>
+                  <Divider />
+                  <List>
+                    {["All mail", "Trash", "Spam"].map((text, index) => (
+                      <ListItem
+                        key={text}
+                        disablePadding
+                        sx={{ display: "block" }}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Agent</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
+                        <ListItemButton
+                          sx={{
+                            minHeight: 48,
+                            justifyContent: open ? "initial" : "center",
+                            px: 2.5,
+                          }}
+                        >
+                          <TextField label="Dashboard"></TextField>
+                          <ListItemIcon
+                            sx={{
+                              minWidth: 0,
+                              mr: open ? 3 : "auto",
+                              justifyContent: "center",
+                            }}
+                          >
+                            {index % 2 === 0 ? <Dashboard /> : <MailIcon />}
+                          </ListItemIcon>
+                          <ListItemText
+                            primary={text}
+                            sx={{ opacity: open ? 1 : 0 }}
+                          />
+                        </ListItemButton>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Drawer>
+                <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                  <DrawerHeader />
+                  <TabContext value={value}>
+                    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                      <TabList
+                        onChange={handleChange}
+                        aria-label="lab API tabs example"
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Agent Reference</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </div>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={4} sm={4} md={4} lg={4}>
-              <Card>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Company Details
-                  </Typography>
-                  <div className="flex flex-col space-y-2">
-                    <FormControl fullWidth>
-                      <InputLabel>Currency</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>QP Company</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Location</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Order Number</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Domestic Export</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Order Status</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                    <FormControl fullWidth>
-                      <InputLabel>Prime TBD</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        value={state.companyDetails.currency}
-                        label="Currency"
-                        onChange={() => {}}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>US Dollars</MenuItem>
-                        <MenuItem value={20}>INR</MenuItem>
-                        <MenuItem value={30}>Euro</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </div>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-        </Box>
+                        <Tab label="Line items" value="10" />
+                        <Tab label="Customer" value="11" />
+                        <Tab label="Instructions" value="12" />
+                        <Tab label="Documents" value="13" />
+                      </TabList>
+                    </Box>
+                  </TabContext>
+                </Box>
+              </Box>
+            </Box>
+          </TabPanel>
+          <TabPanel value="3">Item Two</TabPanel>
+          <TabPanel value="4">Item Three</TabPanel>
+        </TabContext>
       </Box>
     </Box>
   );
